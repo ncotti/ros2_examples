@@ -40,8 +40,16 @@ ament_target_dependencies(service rclcpp my_interface)
 add_executable(client src/client.cpp)
 ament_target_dependencies(client rclcpp my_interface)
 
+add_executable(parameter src/parameter.cpp)
+target_include_directories(parameter PUBLIC include)
+ament_target_dependencies(parameter rclcpp)
+
+
 ###############################################################################
 #   Instalación
 ###############################################################################
-install(TARGETS publisher subscriber service client DESTINATION lib/${PROJECT_NAME})
+install(TARGETS publisher subscriber service client parameter DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/)
+
 ament_package()

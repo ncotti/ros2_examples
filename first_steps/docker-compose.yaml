@@ -18,6 +18,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
 
       - ${PWD}/entrypoint.sh:/entrypoint.sh
+      - ${PWD}/turtle_launch.py:/turtle_launch.py
 
     
     tty: true

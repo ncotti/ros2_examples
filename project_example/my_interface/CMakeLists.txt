@@ -21,13 +21,14 @@ endif()
 find_package(ament_cmake REQUIRED)
 
 ###############################################################################
-#   Generación de mensajes y servicios propios
+#   Generación de mensajes, servicios y acciones propios
 ###############################################################################
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/MyMsg.msg"
-  "srv/MySrv.srv"
+    "msg/MyMsg.msg"
+    "srv/MySrv.srv"
+    "action/Fibonacci.action" 
 )
 
 ###############################################################################
