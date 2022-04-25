@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
 
-  if (argc != 4) 
+  if (argc < 4) 
   {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");
       return 1;
@@ -45,6 +45,8 @@ int main(int argc, char **argv)
       RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
       return 0;
     }
+    rclcpp::Client<my_interface::srv::MySrv>::SharedPtr client =
+        node->create_client<my_interface::srv::MySrv>("service_name");
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Service not available, waiting again...");
   }
 

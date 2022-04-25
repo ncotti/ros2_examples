@@ -15,4 +15,4 @@ ros2_examples
 ```
 * **first_steps**: Imagen de Docker para correr el tutorial de turtlebot.
 
-* **project_example**: Imagen de Docker con un proyecto de prueba, creado el workspace y definiendo las dependencias y buildeo del paquete.
+* **project_example**: Imagen de Docker con un proyecto de prueba, el cual crea el workspace, define las dependencias y construye el paquete.

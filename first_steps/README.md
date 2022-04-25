@@ -2,15 +2,13 @@
 
 En este tutorial vamos a ejecutar `turtlesim` y `rqt`, según indica el [tutorial de CLI Tools de ROS2](https://docs.ros.org/en/foxy/Tutorials.html).
 
-Para ello, debe tener instalado [Docker](https://www.docker.com/).
-
 Para generar la imagen, ejecute:
 
 ```
-$ docker-compose build
+$ docker-compose pull
 ```
 
-Disclaimer: este contenedor corre una GUI, y para ello es necesario conectar el monitor de su computadora con el contenedor. Los drivers y la forma de conectar los dispositivos varían según el sistema operativo que use. Para este ejemplo y posteriores, se usará GNU Linux con Xhost. Para permitir el uso del periférico (desde la address local, bajo el usuario root), corra:
+Disclaimer: este contenedor corre una GUI, y para ello es necesario conectar el monitor de su computadora con el contenedor. Los drivers y la forma de conectar los dispositivos varían según el sistema operativo que use. Para este ejemplo y posteriores, se usará GNU Linux con Xhost. Para permitir el uso del periférico (desde la address local, bajo el usuario root), debe correr esta línea cada vez que inicie su computadora:
 
 ```
 $ xhost +local:root
@@ -26,7 +24,7 @@ Ahora, abra otra terminal, y ejecute:
 ```
 $ docker ps
 
-# Vera un output de la siguiente forma:
+# Verá un output de la siguiente forma:
 CONTAINER ID   IMAGE                     COMMAND                  CREATED         STATUS         PORTS     NAMES
 14c29e3195a8   ncotti/ros2:first_steps   "/entrypoint.sh /bin…"   5 seconds ago   Up 3 seconds             ros
 ```
@@ -42,7 +40,9 @@ $ docker exec -ti ros /bin/bash
 $ source "/opt/ros/${ROS_DISTRO}/setup.bash"
 ```
 
-## Una nota con respecto a Windows y Mac
-El container así como esta implementado sólo debería andar en linux. Si bien los comandos de docker son ejecutables desde cualquier sistema operativo, la conexión con los periféricos es complicada.
-
-Tengo entendido que Xhost es instalable en Windows, pero no tengo conocimientos al respecto, y posiblemente haya que tocar otras cosas.
+## Comandos de turtlebot
+```
+$ ros2 run turtlesim turtlesim_node
+$ ros2 run turtlesim turtle_teleop_key
+$ rqt
+```

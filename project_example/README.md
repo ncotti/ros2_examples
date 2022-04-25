@@ -36,12 +36,19 @@ $ xhost +local:root
 
 Para iniciar el container:
 ```
-$ docker-compose run --rm --name ros ros
+$ docker-compose run --name ros ros
 ```
 
 Para ejecutar una nueva terminal:
 ```
 $ docker exec -ti ros /bin/bash
 $ cd ~/dev_ws && . install/setup.bash
+```
+
+## Archivos launch
+Dentro del Docker, pruebe a ejecutar los archivos launch ya creados:
+```
+$ ros2 launch my_package service_launch.py
+$ ros2 launch my_package sub_launch.py
 ```
 

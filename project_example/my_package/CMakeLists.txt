@@ -50,6 +50,7 @@ ament_target_dependencies(parameter rclcpp)
 ###############################################################################
 install(TARGETS publisher subscriber service client parameter DESTINATION lib/${PROJECT_NAME})
 
+# Para incluir los archivos launch
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/)
 
 ament_package()
