@@ -36,7 +36,8 @@ $ xhost +local:root
 
 Para iniciar el container:
 ```
-$ docker-compose run --name ros ros
+$ docker-compose pull
+$ docker-compose run --rm --name ros ros
 ```
 
 Para ejecutar una nueva terminal:
